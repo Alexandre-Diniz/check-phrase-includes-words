@@ -1,7 +1,14 @@
-import verify from './check-phrase-includes-words'
+function checkPhraseIncludesWords(phrase, words) {
+  const contain = words.split(' ').map(word => {
+    if (phrase.toLowerCase().includes(word)) {
+      return true
+    } else return false
+  })
+  return contain.every(item => item === true)
+}
 
-export default function(data,index){
+async function getDataFilteredByWords(value) {
   return data.filter(item => {
-    return verify(item[title], value)
+    return checkPhraseIncludesWords(item.title, value)
   })
 }
