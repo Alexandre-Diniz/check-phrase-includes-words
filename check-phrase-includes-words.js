@@ -6,3 +6,4 @@ const verify = (phrase, words) => {
   })
   return contain.every(item => item === true)
 }
+export default verify
